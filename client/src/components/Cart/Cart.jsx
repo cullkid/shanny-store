@@ -20,18 +20,19 @@ const Cart = () => {
   };
 
   const stripePromise = loadStripe(
-    "pk_test_eOTMlr8usx1ctymXqrik0ls700lQCsX2UB"
+    "pk_test_51MinXyKJzl1qvWCIxkx2fY45S1hKexg1jH51voLCYldmNMfR3ZRAYFSTZLWNTe5Kw2MPyzwSm6XcKIiZpFJKudc400vpg8T7BG"
   );
   const handlePayment = async () => {
     try {
+      // console.log("reached");
+      // console.log("products", products);
+      // console.log("url", process.env.REACT_APP_API_URL + "/orders");
       const stripe = await stripePromise;
-      const res = await makeRequest.post("/orders", {
-        products,
-      });
+      const res = await makeRequest.post("/orders", { products });
+
       await stripe.redirectToCheckout({
         sessionId: res.data.stripeSession.id,
       });
-
     } catch (err) {
       console.log(err);
     }
