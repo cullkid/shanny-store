@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { makeRequest } from "../makeRequest";
+import { useEffect, useState } from 'react';
+import { makeRequest } from '../makeRequest';
 
 const useFetch = (url) => {
   const [data, setData] = useState(null);
@@ -12,6 +12,7 @@ const useFetch = (url) => {
         setLoading(true);
         const res = await makeRequest.get(url);
         setData(res.data.data);
+        // console.log(data);
       } catch (err) {
         setError(true);
       }

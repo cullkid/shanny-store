@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import "./FeaturedProducts.scss";
-import useFetch from "../../hooks/useFetch";
-import CardProduct from "../card product/CardProduct";
+import React, { useState } from 'react';
+import './FeaturedProducts.scss';
+import useFetch from '../../hooks/useFetch'
+import CardProduct from '../card product/CardProduct';
 // import Pagination from "../pagination/Pagination";
 
 const FeaturedProducts = ({ type }) => {
@@ -33,9 +33,9 @@ const FeaturedProducts = ({ type }) => {
       </div>
       <div className="bottom">
         {error
-          ? "Something went wrong!"
+          ? 'Something went wrong!'
           : loading
-          ? "loading"
+          ? 'loading'
           : data?.map((item) => <CardProduct item={item} key={item.id} />)}
       </div>
       {/* <Pagination
